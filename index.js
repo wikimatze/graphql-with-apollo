@@ -7,7 +7,7 @@ const typeDefs = gql`
   type Session {
     id: ID!
     title: String
-    author: String @deprecated(reason: "small test")
+    author: String
   }
 
   # The "Query" type is special: it lists all of the available queries that
@@ -30,7 +30,6 @@ const sessions = [
     author: 'Paul Auster',
   },
 ];
-
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
