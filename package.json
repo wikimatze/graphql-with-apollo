@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/wikimatze/graphql-with-apollo/issues"
   },
-  "homepage": "https://github.com/wikimatze/graphql-with-apollo#readme"
+  "homepage": "https://github.com/wikimatze/graphql-with-apollo#readme",
+  "dependencies": {
+    "apollo-server": "^2.12.0"
+  }
 }
