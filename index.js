@@ -4,25 +4,28 @@ const { ApolloServer, gql } = require('apollo-server');
 // that together define the "shape" of queries that are executed against
 // your data.
 const typeDefs = gql`
-  type Book {
+  type Session {
+    id: ID!
     title: String
-    author: String
+    author: String @deprecated(reason: "small test")
   }
 
   # The "Query" type is special: it lists all of the available queries that
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    books: [Book]
+    sessions: [Session]
   }
 `;
 
-const books = [
+const sessions = [
   {
+    id: "123",
     title: 'The Awakening',
     author: 'Kate Chopin',
   },
   {
+    id: "321",
     title: 'City of Glass',
     author: 'Paul Auster',
   },
@@ -33,7 +36,7 @@ const books = [
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books,
+    sessions: () => sessions,
   },
 };
 
@@ -46,5 +49,4 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
-
 
